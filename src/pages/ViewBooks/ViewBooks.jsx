@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../contexts/Auth.context';
 import { HighlightIdContext } from '../../contexts/HighlightId.context';
 import { HeaderBase, Loading } from '../../components';
 import * as S from './ViewBooks.style';
 
 function ViewBooks() {
-  const auth = useContext(AuthContext);
+  const token = localStorage.getItem('token');
   const [data, setData] = useState([]);
   const selectedId = useContext(HighlightIdContext);
 
@@ -14,12 +13,12 @@ function ViewBooks() {
   useEffect(() => {
     fetch(`${process.env.REACT_APP_SERVER_URL}/books`, {
       headers: {
-        Authorization: auth.token,
+        Authorization: token,
       },
     })
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, [auth.token]);
+  }, [token]);
 
   return (
     <>

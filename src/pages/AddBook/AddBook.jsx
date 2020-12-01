@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { FormTemplate, HeaderBase } from '../../components';
 import { addBookFormData } from '../../utils/formData';
-import { AuthContext } from '../../contexts/Auth.context';
 import { HighlightIdContext } from '../../contexts/HighlightId.context';
 import * as S from './AddBook.style';
 
@@ -11,14 +10,14 @@ function addBookTo(
   setErrorMessage,
   setNotifType,
   error,
-  auth
+  token
 ) {
   error = false;
   fetch(`${process.env.REACT_APP_SERVER_URL}/add-book`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: auth.token,
+      Authorization: token,
     },
     body: JSON.stringify(fieldValues),
   })
@@ -43,7 +42,7 @@ function addBookTo(
 }
 
 function AddBook() {
-  const auth = useContext(AuthContext);
+  const token = localStorage.getItem('token');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
   const [notifType, setNotifType] = useState();
@@ -65,7 +64,7 @@ function AddBook() {
                 setErrorMessage,
                 setNotifType,
                 error,
-                auth
+                token
               )
             }
             fields={addBookFormData}
