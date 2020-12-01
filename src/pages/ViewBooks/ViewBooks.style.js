@@ -24,6 +24,7 @@ export const ViewBox = styled.div`
   z-index: 2;
   box-sizing: border-box;
   transform: translate(-50%, -50%);
+  overflow: hidden;
 `;
 
 export const BooksBox = styled.div`
