@@ -8,6 +8,7 @@ function HeaderBase() {
   const nav = [
     { id: 1, name: 'View Books', to: '/books' },
     { id: 2, name: 'Add Book', to: '/add-book' },
+    { id: 3, name: 'New Users Stats', to: '/stats' },
   ];
   const auth = useContext(AuthContext);
   const selectedId = useContext(HighlightIdContext);

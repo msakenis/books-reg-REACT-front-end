@@ -5,7 +5,7 @@ import * as S from './ViewBooks.style';
 
 function ViewBooks() {
   const token = localStorage.getItem('token');
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   const selectedId = useContext(HighlightIdContext);
 
   selectedId.setId(1);
@@ -39,7 +39,7 @@ function ViewBooks() {
               <tbody>
                 {data &&
                   data.map((row, index) => (
-                    <tr>
+                    <tr key={index}>
                       <td>{index + 1}.</td>
                       <td>{row.author}</td>
                       <td>{row.title}</td>
