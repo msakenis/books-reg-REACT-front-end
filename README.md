@@ -10,7 +10,7 @@
 <!-- ABOUT THE PROJECT -->
 
 ## :bulb: About The Project
-
+  Demo for learning purposes only.
  This is a CRUD based Demo system, which you can add books and check it anytime. Login and Registration are valid.
  PrivateRouter as component used. Context for handling the JW token.
 
