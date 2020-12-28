@@ -30,7 +30,7 @@ export const ViewBox = styled.div`
 export const BooksBox = styled.div`
   flex: 5;
   padding: 2em;
-  overflow: scroll;
+  overflow: auto;
 `;
 
 export const Table = styled.table`

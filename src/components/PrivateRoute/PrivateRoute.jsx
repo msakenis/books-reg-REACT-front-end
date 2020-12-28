@@ -14,7 +14,6 @@ function PrivateRoute({ path, component }) {
     if (token) {
       const tokenExpiration = jwtDecode(token).exp;
       const timeNow = new Date().getTime() / 1000;
-      console.log(timeNow);
 
       if (!(tokenExpiration < timeNow)) {
         fetch(`${process.env.REACT_APP_SERVER_URL}/verify`, {
